@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f0f1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Header ── */
+.header {
+  background: #13132b;
+  padding: 28px 24px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header-top {
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.next-prayer-name {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.countdown {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.countdown span {
+  color: #a78bfa;
+  font-weight: 500;
+}
+
+.progress-wrap {
+  height: 3px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #a78bfa;
+  border-radius: 2px;
+  transition: width 1s linear;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #555;
+}
+
+/* ── Body ── */
+.body {
+  background: #0f0f1a;
+  padding: 20px 20px 24px;
+}
+
+/* ── City Selector ── */
+.city-selector {
+  margin-bottom: 20px;
+}
+
+.city-selector select {
+  width: 100%;
+  padding: 10px 14px;
+  background: #1a1a2e;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: #e2e8f0;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.city-selector select:focus {
+  border-color: #a78bfa;
+}
+
+/* ── Prayer List ── */
+.prayer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ── Prayer Item ── */
+.prayer-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: #1a1a2e;
+  transition: all 0.2s;
+}
+
+.prayer-item.is-next {
+  background: #13132b;
+  border-color: #a78bfa;
+}
+
+.prayer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prayer-icon { font-size: 16px; width: 20px; text-align: center; }
+
+.prayer-name {
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.prayer-item.is-next .prayer-name {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.prayer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prayer-time {
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.prayer-item.is-next .prayer-time { color: #a78bfa; }
+
+.next-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  background: #a78bfa;
+  color: #13132b;
+  border-radius: 99px;
+  font-weight: 600;
+}
+
+/* ── Hijri Date ── */
+.hijri {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 11px;
+  color: #444;
+}
+
+/* ── Loading / Error ── */
+.loading {
+  text-align: center;
+  color: #555;
+  font-size: 13px;
+  padding: 40px 0;
+}
+
+.error {
+  text-align: center;
+  color: #ef4444;
+  font-size: 13px;
+  padding: 20px 0;
+}
+
+/* ── Skeleton loading ── */
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skeleton-row {
+  height: 44px;
+  border-radius: 10px;
+  background: #1a1a2e;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-row::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.04) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* ── All done message ── */
+.all-done {
+  text-align: center;
+  padding: 24px 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.all-done span {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* ── Retry button ── */
+.retry-btn {
+  display: block;
+  margin: 12px auto 0;
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid #a78bfa;
+  border-radius: 8px;
+  color: #a78bfa;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
