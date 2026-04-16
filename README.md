@@ -76,4 +76,4 @@ Uses the free [Aladhan API](https://aladhan.com/prayer-times-api) — no API key
 
 MUHAMMAD HAFIZUL BIN AHMAD HUSNI
 CARAMELLATTEE
-Your Vercel URL (after Day 7)
+[Your Vercel URL (after Day 7)](https://prayer-8vhcyd3hy-caramellattees-projects.vercel.app/)
